@@ -523,17 +523,17 @@ var logo=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="im
 
 <circle cx="50" cy="50" r="48" fill="url(#nqg)"/>
 <circle cx="50" cy="50" r="43.5" fill="none" stroke="url(#nqgold)" stroke-width="2.6"/>
-<g stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" fill="none">
-<line x1="50" y1="30" x2="50" y2="69"/>
-<line x1="24" y1="37" x2="76" y2="37"/>
-<line x1="38" y1="71" x2="62" y2="71"/>
-<line x1="24" y1="37" x2="15" y2="54"/><line x1="24" y1="37" x2="33" y2="54"/>
-<line x1="76" y1="37" x2="67" y2="54"/><line x1="76" y1="37" x2="85" y2="54"/>
-</g>
-<path d="M13 54 h22 a11 7.5 0 0 1 -22 0 z" fill="url(#nqgold)"/>
-<path d="M65 54 h22 a11 7.5 0 0 1 -22 0 z" fill="url(#nqgold)"/>
-<circle cx="50" cy="29" r="5.6" fill="url(#nqgold)"/>
-<circle cx="50" cy="29" r="2.2" fill="#142C6B"/>
+<!-- rising bars -->
+<rect x="30" y="52" width="10" height="20" rx="2" fill="#FFFFFF"/>
+<rect x="45" y="42" width="10" height="30" rx="2" fill="#FFFFFF"/>
+<rect x="60" y="32" width="10" height="40" rx="2" fill="#FFFFFF"/>
+<path d="M26 76 H74" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+<!-- coins stack -->
+<ellipse cx="32" cy="36" rx="9" ry="3.6" fill="url(#nqgold)" stroke="#142C6B" stroke-width="1.4"/>
+<ellipse cx="32" cy="31" rx="9" ry="3.6" fill="url(#nqgold)" stroke="#142C6B" stroke-width="1.4"/>
+<ellipse cx="32" cy="26" rx="9" ry="3.6" fill="url(#nqgold)" stroke="#142C6B" stroke-width="1.4"/>
+<!-- check -->
+<path d="M66 24 l5 5 l9 -10" stroke="url(#nqgold)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 var logoDefs=`<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true"><defs>
 <linearGradient id="nqg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E5BD0"/><stop offset="1" stop-color="#142C6B"/></linearGradient>
@@ -543,3 +543,5 @@ html=logoDefs+html.split('__LOGO__').join(logo);
 var s=document.createElement('style');s.textContent=css;document.head.appendChild(s);
 document.body.insertAdjacentHTML('beforeend',html);
 })();
+
+
