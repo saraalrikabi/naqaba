@@ -201,19 +201,41 @@ table.sched td.g{background:var(--paper);font-weight:600}
   #accForm{display:none}
   .wrap{padding-bottom:0;max-width:none}
   .sched th,.sched td{border-color:#000}
-}`;
+}
+/* ===== الهوية البصرية ===== */
+.seal{width:42px;height:42px;border:0;background:none;padding:0;border-radius:0;display:block;flex:none}
+.seal svg{width:100%;height:100%;display:block}
+.screen .seal{width:124px;height:124px;margin:0 auto 18px;filter:drop-shadow(0 8px 18px rgba(20,44,107,.28))}
+.screen{padding-top:52px}
+#s-auth h2{font-size:24px;line-height:1.5}
+#s-auth .lead{font-size:14.5px}
+.authcard{background:var(--surface);border:1px solid var(--rule);border-radius:18px;padding:18px 16px 12px;box-shadow:0 10px 30px rgba(20,35,28,.06)}
+.brandline{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--lapis));margin:0 auto 22px;width:72px}
+header.top{border-bottom:0}
+header.top::after{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--gold) 0 40%,var(--lapis) 40% 100%)}
+header.top h1{font-size:15.5px;letter-spacing:-.1px}
+.quick button{box-shadow:var(--shadow)}
+.quick button svg{width:28px;height:28px}
+.member{border-width:1.5px}
+:root[data-theme="dark"] .btn.ghost{color:var(--lapis)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.ghost{color:var(--lapis)}}
+:root[data-theme="dark"] .screen .seal{filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .screen .seal{filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}}
+`;
 var html=`<!-- ===== شاشة الإعداد (تظهر فقط إذا config.js فارغ) ===== -->
 <section class="screen" id="s-setup" hidden>
-  <div class="seal" aria-hidden="true">ن</div>
+  <div class="seal" aria-hidden="true">__LOGO__</div>
   <h2 style="text-align:center">التطبيق غير مربوط بقاعدة البيانات بعد</h2>
   <p class="lead" style="text-align:center">افتح ملف <b>config.js</b> وضع رابط مشروع Supabase والمفتاح العام، ثم ارفع الملفات من جديد. الخطوات كاملة في دليل التشغيل.</p>
 </section>
 
 <!-- ===== تسجيل الدخول ===== -->
 <section class="screen" id="s-auth" hidden>
-  <div class="seal" aria-hidden="true">ن</div>
+  <div class="seal" aria-hidden="true">__LOGO__</div>
   <h2 style="text-align:center;margin-top:0">نقابة المحاسبين والمدققين العراقيين</h2>
+  <div class="brandline" aria-hidden="true"></div>
   <p class="lead" style="text-align:center">سجّل دخولك ببريدك الإلكتروني. يصلك رمز من 6 أرقام بدون كلمة سر.</p>
+  <div class="authcard">
   <div id="authStep1">
     <div class="field"><label for="aEmail">البريد الإلكتروني</label><input id="aEmail" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" style="direction:ltr;text-align:left"></div>
     <button class="btn block" id="aSend">أرسل الرمز</button>
@@ -225,6 +247,7 @@ var html=`<!-- ===== شاشة الإعداد (تظهر فقط إذا config.js �
     <p class="note">إذا وصلك رابط بدل الرمز، اضغط الرابط وراح يفتح التطبيق مسجّل الدخول.</p>
   </div>
   <div class="err" id="aErr"></div>
+  </div>
 </section>
 
 <!-- ===== إكمال الملف الشخصي ===== -->
@@ -246,7 +269,7 @@ var html=`<!-- ===== شاشة الإعداد (تظهر فقط إذا config.js �
 <div id="app" hidden>
 <header class="top">
   <div class="in">
-    <div class="seal" aria-hidden="true">ن</div>
+    <div class="seal" aria-hidden="true">__LOGO__</div>
     <div>
       <h1>نقابة المحاسبين والمدققين العراقيين</h1>
       <small id="hdrsub">تطبيق الأعضاء</small>
@@ -496,6 +519,27 @@ var html=`<!-- ===== شاشة الإعداد (تظهر فقط إذا config.js �
 <div class="scrim" id="scrim"></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div class="in" id="sheetIn"></div></div>
 <div class="toast" id="toast" role="status"></div>`;
+var logo=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="شعار نقابة المحاسبين والمدققين العراقيين">
+
+<circle cx="50" cy="50" r="48" fill="url(#nqg)"/>
+<circle cx="50" cy="50" r="43.5" fill="none" stroke="url(#nqgold)" stroke-width="2.6"/>
+<g stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" fill="none">
+<line x1="50" y1="30" x2="50" y2="69"/>
+<line x1="24" y1="37" x2="76" y2="37"/>
+<line x1="38" y1="71" x2="62" y2="71"/>
+<line x1="24" y1="37" x2="15" y2="54"/><line x1="24" y1="37" x2="33" y2="54"/>
+<line x1="76" y1="37" x2="67" y2="54"/><line x1="76" y1="37" x2="85" y2="54"/>
+</g>
+<path d="M13 54 h22 a11 7.5 0 0 1 -22 0 z" fill="url(#nqgold)"/>
+<path d="M65 54 h22 a11 7.5 0 0 1 -22 0 z" fill="url(#nqgold)"/>
+<circle cx="50" cy="29" r="5.6" fill="url(#nqgold)"/>
+<circle cx="50" cy="29" r="2.2" fill="#142C6B"/>
+</svg>`;
+var logoDefs=`<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true"><defs>
+<linearGradient id="nqg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E5BD0"/><stop offset="1" stop-color="#142C6B"/></linearGradient>
+<linearGradient id="nqgold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0D27A"/><stop offset="1" stop-color="#B8871A"/></linearGradient>
+</defs></svg>`;
+html=logoDefs+html.split('__LOGO__').join(logo);
 var s=document.createElement('style');s.textContent=css;document.head.appendChild(s);
 document.body.insertAdjacentHTML('beforeend',html);
 })();
